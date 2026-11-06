@@ -1,0 +1,11 @@
+.navDemo {
+  width: 260px;
+  max-width: 100%;
+  padding: var(--space-2);
+  border-radius: var(--radius);
+}
+
+.navDemoCollapsed {
+  width: 72px;
+  padding: var(--space-2) 12px;
+}

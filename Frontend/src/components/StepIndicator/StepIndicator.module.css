@@ -1,0 +1,81 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+/* The line between steps. Navy once the step before it is done. */
+.step:not(:last-child)::after {
+  content: '';
+  width: var(--space-6);
+  height: 2px;
+  margin-left: var(--space-1);
+  background: var(--border);
+}
+
+.marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--text-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-strong);
+  font-weight: 700;
+}
+
+.done {
+  color: var(--text-strong);
+}
+
+.done .marker {
+  background: var(--text-strong);
+  color: var(--surface);
+}
+
+.done:not(:last-child)::after {
+  background: var(--text-strong);
+}
+
+.current {
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.current .marker {
+  border-color: var(--accent-fill);
+  background: var(--accent-fill);
+}
+
+/* Small screens: only the current step keeps its name on screen (screen readers still get all of them) */
+@media (max-width: 560px) {
+  .step:not(.current) .name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .step:not(:last-child)::after {
+    width: var(--space-2);
+  }
+}

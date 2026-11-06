@@ -1,0 +1,125 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: var(--target-min);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  outline: none;
+  transition:
+    background 0.12s,
+    transform 0.08s,
+    box-shadow 0.12s,
+    filter 0.12s;
+}
+
+.sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.md {
+  padding: 9px 16px;
+  font-size: 14px;
+}
+
+.lg {
+  padding: 12px 20px;
+  font-size: 16px;
+  min-height: var(--target-touch);
+}
+
+.iconOnly {
+  padding: 9px;
+  min-width: var(--target-min);
+}
+
+.iconOnly.sm {
+  padding: 6px;
+}
+
+.iconOnly.lg {
+  padding: 12px;
+}
+
+/* Variants. Hover and press only while the button can be used. */
+.primary {
+  background: var(--accent-fill);
+  color: var(--accent-on-fill);
+}
+
+.primary:not([aria-disabled='true']):hover {
+  background: var(--accent-fill-hover);
+}
+
+.primary:not([aria-disabled='true']):active {
+  background: var(--accent-fill-active);
+  transform: scale(0.98);
+}
+
+.secondary {
+  background: var(--secondary-bg);
+  color: var(--secondary-text);
+  border-color: var(--secondary-border);
+}
+
+.secondary:not([aria-disabled='true']):hover {
+  background: var(--secondary-bg-hover);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--accent-text);
+}
+
+.ghost:not([aria-disabled='true']):hover {
+  background: var(--accent-tint);
+}
+
+.danger {
+  background: var(--danger-fill);
+  color: #fff;
+}
+
+.danger:not([aria-disabled='true']):hover {
+  filter: brightness(0.92);
+}
+
+.secondary:not([aria-disabled='true']):active,
+.ghost:not([aria-disabled='true']):active,
+.danger:not([aria-disabled='true']):active {
+  transform: scale(0.98);
+}
+
+.button:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 4px var(--ring);
+}
+
+/* Disabled (native) and focusable-disabled look the same */
+.button:disabled,
+.softDisabled {
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+  border-color: var(--disabled-border);
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+/* Loading keeps the variant colours */
+.loading {
+  cursor: progress;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}

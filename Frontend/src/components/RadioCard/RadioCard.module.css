@@ -1,0 +1,117 @@
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 22px 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: var(--border-interactive);
+}
+
+/* Selected: navy 2px border (the extra 1px is a shadow, so the content doesn't shift) and a green tint */
+.card:has(.input:checked) {
+  border-color: var(--text-strong);
+  box-shadow: 0 0 0 1px var(--text-strong);
+  background: var(--selected-bg);
+}
+
+.card:has(.input:focus-visible) {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+/* The real input stays in the page for keyboard and screen readers; the circle draws it */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  opacity: 0;
+}
+
+.circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border: 1.5px solid var(--text-2);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.circle::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text-strong);
+  transform: scale(0);
+  transition: transform 0.1s;
+}
+
+.input:checked + .circle {
+  border: 2px solid var(--text-strong);
+}
+
+.input:checked + .circle::after {
+  transform: scale(1);
+}
+
+.text {
+  display: grid;
+  gap: 4px;
+}
+
+.title {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-1);
+}
+
+.badge {
+  margin-left: auto;
+}
+
+/* Can't be chosen: muted, and no hover or pointer */
+.disabled {
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  border-color: var(--border);
+}
+
+.disabled .title,
+.disabled .description {
+  color: var(--disabled-text);
+}
+
+.disabled .circle {
+  border-color: var(--disabled-border);
+  background: var(--disabled-bg);
+}
+
+.description {
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circle::after {
+    transition: none;
+  }
+}

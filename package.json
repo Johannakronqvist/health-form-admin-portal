@@ -1,0 +1,9 @@
+{
+  "name": "health-form-admin-portal",
+  "private": true,
+  "description": "Runs the frontend and the mock backend together",
+  "scripts": {
+    "postinstall": "npm install --prefix Backend && npm install --prefix Frontend",
+    "dev": "npm run dev --prefix Backend & npm run dev --prefix Frontend"
+  }
+}

@@ -1,0 +1,136 @@
+/* Design tokens for Hälsoportalen */
+:root {
+  /* Surfaces and text */
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --text-1: #1b2430;
+  --text-2: #566273;
+  --text-strong: #1b2a4a;
+  --border: #d3d9e0;
+  --border-interactive: #7b8794;
+  --selected-bg: #f2f8f4;
+
+  /* Accent (green) */
+  --accent-fill: #6cad88;
+  --accent-fill-hover: #86bc9d;
+  --accent-fill-active: #9dc8b0;
+  --accent-on-fill: #142e1f;
+  --accent-marker: #59a078;
+  --accent-on-marker: #142e1f;
+  --accent-text: #367d54;
+  --accent-tint: #e8f7ef;
+  --accent-on-tint: #347952;
+  --ring: #367d54;
+
+  /* Secondary button */
+  --secondary-bg: #e8f7ef;
+  --secondary-bg-hover: #d9f2e4;
+  --secondary-text: #347952;
+  --secondary-border: transparent;
+
+  /* Danger and disabled */
+  --danger: #b4322f;
+  --danger-fill: #b4322f;
+  --disabled-bg: #eef1f4;
+  --disabled-text: #8a94a3;
+  --disabled-border: #e1e6eb;
+
+  /* Badges: soft (sb/sf) and solid (lb/lf) per tone */
+  --bd-neutral-sb: #eef1f4;
+  --bd-neutral-sf: #3f4a59;
+  --bd-neutral-lb: #3f4a59;
+  --bd-neutral-lf: #ffffff;
+  --bd-accent-sb: #e8f7ef;
+  --bd-accent-sf: #347952;
+  --bd-accent-lb: #6cad88;
+  --bd-accent-lf: #142e1f;
+  --bd-success-sb: #e3f3ea;
+  --bd-success-sf: #1e6b40;
+  --bd-success-lb: #15803d;
+  --bd-success-lf: #ffffff;
+  --bd-warning-sb: #fff3d9;
+  --bd-warning-sf: #7a4e00;
+  --bd-warning-lb: #8f4708;
+  --bd-warning-lf: #ffffff;
+  --bd-danger-sb: #f8e7e4;
+  --bd-danger-sf: #9a2c29;
+  --bd-danger-lb: #b4322f;
+  --bd-danger-lf: #ffffff;
+  --bd-info-sb: #e5eafb;
+  --bd-info-sf: #1a45c0;
+  --bd-info-lb: #1d4ed8;
+  --bd-info-lf: #ffffff;
+
+  /* Alerts */
+  --al-info-bg: #e5eafb;
+  --al-info-border: #c9d6f7;
+  --al-info-head: #1a45c0;
+  --al-info-body: #26324f;
+  --al-success-bg: #e3f0e8;
+  --al-success-border: #c6e1ce;
+  --al-success-head: #0f6e36;
+  --al-success-body: #24352a;
+  --al-warning-bg: #f7ecd9;
+  --al-warning-border: #ebd8b6;
+  --al-warning-head: #8f4708;
+  --al-warning-body: #3e2f14;
+  --al-danger-bg: #f8e7e4;
+  --al-danger-border: #f0cdc7;
+  --al-danger-head: #9a2c29;
+  --al-danger-body: #4a2724;
+
+  /* Typography */
+  --font-body: Inter, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: Inter, 'Helvetica Neue', Arial, sans-serif;
+  --fs-sm: 13px;
+  --fs-base: 16px;
+  --fs-lg: 19px;
+  --fs-xl: 23px;
+  --fs-2xl: 28px;
+  --fs-3xl: 33px;
+
+  /* Spacing (8px unit) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+
+  /* Shape and targets */
+  --radius: 12px;
+  --target-min: 24px;
+  --target-touch: 44px;
+
+  /* Heartbeat (saving decoration) */
+  --hb-button-duration: 1.6s;
+
+  /* Layout */
+  --sidebar-width: 264px;
+  --content-max-width: 1128px;
+}
+
+/*
+  The navy sidebar. Put this class on a container and everything inside reads
+  the dark values. The current menu item is green with navy text.
+*/
+.theme-sidebar {
+  --bg: #1b2a4a;
+  --surface: #1b2a4a;
+  --text-1: #ffffff;
+  --text-2: #c5ceda;
+  --border: #33466b;
+  --accent-tint: #6cad88;
+  --accent-on-tint: #1b2a4a;
+  --accent-text: #6cad88;
+  --accent-marker: #1b2a4a;
+  --ring: #6cad88;
+  --nav-text: #ffffff;
+  --nav-hover-bg: rgba(255, 255, 255, 0.08);
+  --nav-hover-text: #ffffff;
+  /* The open company in the Företag list */
+  --nav-current-bg: #ffffff;
+  --nav-current-text: #1b2a4a;
+
+  background: var(--bg);
+  color: var(--text-1);
+}

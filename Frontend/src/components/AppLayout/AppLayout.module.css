@@ -1,0 +1,202 @@
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100vh;
+  transition: grid-template-columns 0.2s ease;
+}
+
+/* Icon rail. Fixed elements that line up with the sidebar (e.g. the wizard footer) use the same variable. */
+.collapsed {
+  --sidebar-width: 72px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100vh;
+  padding: var(--space-3);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+
+.brand {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Short green line under the name */
+.brand::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  margin-top: var(--space-1);
+  border-radius: 2px;
+  background: var(--accent-fill);
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--target-touch);
+  height: var(--target-touch);
+  margin: -10px -10px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.toggle:hover {
+  background: var(--nav-hover-bg);
+  color: var(--text-1);
+}
+
+.toggle:focus-visible,
+.logout:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.user p {
+  margin: 0;
+}
+
+.subnav {
+  margin-top: calc(-1 * var(--space-2));
+}
+
+.logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  align-self: flex-start;
+  min-height: var(--target-touch);
+  padding: 0 var(--space-1);
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text-2);
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: var(--text-1);
+}
+
+/* The log-out icon is only shown in the collapsed rail */
+.logoutIcon {
+  display: none;
+}
+
+/* Collapsed: only the toggle, avatar, menu icons and log-out icon. Hidden text is still read out. */
+.collapsed .sidebar {
+  align-items: center;
+  padding: var(--space-3) 12px;
+}
+
+.collapsed .top {
+  justify-content: center;
+}
+
+.collapsed .toggle {
+  margin: 0;
+}
+
+.collapsed .brand,
+.collapsed .userText,
+.collapsed .logoutText {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.collapsed .user {
+  justify-content: center;
+}
+
+.collapsed .logout {
+  align-self: center;
+  justify-content: center;
+  width: var(--target-touch);
+  padding: 0;
+}
+
+.collapsed .logoutIcon {
+  display: block;
+}
+
+.main {
+  width: 100%;
+  max-width: var(--content-max-width);
+  padding: var(--space-6);
+}
+
+/* The content gets the width the sidebar gave up (264px - 72px) */
+.collapsed .main {
+  max-width: calc(var(--content-max-width) + 192px);
+}
+
+.main:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout {
+    transition: none;
+  }
+}
+
+/* Tablets: less space on the sides, so the content gets more room */
+@media (max-width: 1024px) {
+  .main {
+    padding: var(--space-4) var(--space-3);
+  }
+}
+
+/* Phones: the sidebar sits on top instead of beside the content, and can't collapse */
+@media (max-width: 599px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .main {
+    padding: var(--space-3) var(--space-2);
+  }
+}

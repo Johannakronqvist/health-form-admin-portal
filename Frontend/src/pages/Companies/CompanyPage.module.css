@@ -1,0 +1,71 @@
+.page {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.page p {
+  margin: 0;
+}
+
+.header {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.section {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.sectionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+/* Focus is moved here by code after a removal, so it doesn't need a visible ring */
+.heading:focus {
+  outline: none;
+}
+
+.titles {
+  display: grid;
+  gap: 4px;
+}
+
+.muted {
+  color: var(--text-2);
+}
+
+/* Status badge, with "Opublicerade ändringar" under it when there are some */
+.status {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+}
+
+.unpublished {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--al-warning-head);
+}
+
+/* The "more actions" icon inside the hint text */
+.inlineIcon {
+  vertical-align: -2px;
+}
+
+.modalActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+.error {
+  flex-basis: 100%;
+  color: var(--danger);
+}

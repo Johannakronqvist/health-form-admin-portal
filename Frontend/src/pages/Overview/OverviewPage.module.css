@@ -1,0 +1,168 @@
+.page {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.page p {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.titles {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.card {
+  display: grid;
+}
+
+/* Heading on the left, "Lägst svarsfrekvens först" on the right */
+.cardHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.empty {
+  padding-top: var(--space-2);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Name, context in the middle column, and the action or count on the right */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 3fr) minmax(max-content, 2fr);
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.names {
+  display: grid;
+  gap: 2px;
+}
+
+.title {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.muted {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+/* Status badge, then the link, side by side on the right */
+.end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+/* "Hantera": the same link style as on the draft cards under Formulär */
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  gap: 4px;
+  min-height: var(--target-min);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+  text-underline-offset: 3px;
+}
+
+.action:hover {
+  color: var(--accent-text);
+}
+
+/* The same grey chevron as on the Formulär and Företag rows */
+.chevron {
+  color: var(--text-2);
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Response bar: grey track, green fill, red when few have answered */
+.track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--border);
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent-fill);
+}
+
+.low {
+  background: var(--danger);
+}
+
+.count {
+  justify-self: end;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-1);
+  white-space: nowrap;
+}
+
+.lowText {
+  color: var(--danger);
+}
+
+/* Tablets: tighter cards, so the rows get more room */
+@media (max-width: 1024px) {
+  .page .card {
+    padding: var(--space-2);
+  }
+}
+
+/* Narrow screens: stack the columns */
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+
+  .end {
+    justify-content: flex-start;
+  }
+
+  .count {
+    justify-self: start;
+  }
+}

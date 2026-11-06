@@ -1,0 +1,47 @@
+/* Inside the navy sidebar, so the colours come from .theme-sidebar */
+.companyNav {
+  display: grid;
+  gap: var(--space-1);
+  padding-left: 12px;
+}
+
+.companyNav p {
+  margin: 0;
+}
+
+.list {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px var(--space-2);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--nav-text);
+  text-decoration: none;
+}
+
+.link:hover {
+  background: var(--nav-hover-bg);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* The open company: white with navy text */
+.current,
+.current:hover {
+  background: var(--nav-current-bg);
+  color: var(--nav-current-text);
+  font-weight: 600;
+}

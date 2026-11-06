@@ -1,0 +1,60 @@
+/* Room at the bottom so the fixed footer never covers the last content */
+.page {
+  padding-bottom: 96px;
+}
+
+.header {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+/* White bar along the bottom of the window, beside the sidebar */
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: var(--sidebar-width);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 20px var(--space-6);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.footer p {
+  margin: 0;
+}
+
+.saveStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.saveError {
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+/* Tablets: the same side padding as the page */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 20px var(--space-3);
+  }
+}
+
+/* The sidebar sits on top on phones, so the bar spans the full width */
+@media (max-width: 599px) {
+  .footer {
+    left: 0;
+    padding: var(--space-2);
+  }
+}

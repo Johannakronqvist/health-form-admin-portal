@@ -1,0 +1,78 @@
+/* Shared by Field and SearchField */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.required {
+  color: var(--danger);
+}
+
+.hint {
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+  color: var(--text-2);
+}
+
+.input {
+  width: 100%;
+  min-height: var(--target-touch);
+  padding: 9px 14px;
+  border: 1.5px solid var(--border-interactive);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  outline: none;
+  transition:
+    border-color 0.12s,
+    box-shadow 0.12s;
+}
+
+.input::placeholder {
+  color: var(--text-2);
+  opacity: 1;
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--text-2);
+}
+
+.input:focus-visible {
+  border-color: var(--accent-text);
+  box-shadow: 0 0 0 3px var(--accent-tint);
+}
+
+.invalid {
+  border-color: var(--danger);
+}
+
+.input:disabled {
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+  border-color: var(--disabled-border);
+  cursor: not-allowed;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-sm);
+  color: var(--danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input {
+    transition: none;
+  }
+}

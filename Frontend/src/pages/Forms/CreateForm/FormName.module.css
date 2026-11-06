@@ -1,0 +1,15 @@
+.name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.editor {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-1);
+}

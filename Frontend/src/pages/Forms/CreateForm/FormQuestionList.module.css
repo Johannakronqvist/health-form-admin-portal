@@ -1,0 +1,140 @@
+.section {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+}
+
+.section p {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+/* Focus is moved here by code, so it doesn't need a visible ring */
+.heading:focus {
+  outline: none;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-1);
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: var(--space-1) 12px var(--space-1) var(--space-2);
+  border-radius: 8px;
+  font-family: var(--font-body);
+}
+
+/* Standard questions: grey, no border, can't be moved */
+.locked {
+  background: var(--disabled-bg);
+}
+
+.movable {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: grab;
+  transition: border-color 0.15s;
+}
+
+.movable:hover {
+  border-color: var(--border-interactive);
+}
+
+/* The dragged card's spot in the list: a dashed slot showing where it will land */
+.placeholder,
+.placeholder:hover {
+  border-style: dashed;
+  border-color: var(--border-interactive);
+  background: var(--bg);
+}
+
+.placeholder > * {
+  opacity: 0.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .movable {
+    transition: none;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--text-2);
+}
+
+.text {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.label {
+  flex: 1;
+  font-size: var(--fs-base);
+  font-weight: 500;
+  color: var(--text-1);
+}
+
+.movable .label {
+  font-weight: 600;
+}
+
+.meta,
+.always {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+.always {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/*
+  The move buttons are always in the tab order, but only shown while the row is
+  hovered or has focus.
+*/
+.moveButtons {
+  display: flex;
+  opacity: 0;
+}
+
+.row:hover .moveButtons,
+.row:focus-within .moveButtons {
+  opacity: 1;
+}
+
+/* Touch screens have no hover, so show them there */
+@media (hover: none) {
+  .moveButtons {
+    opacity: 1;
+  }
+}
+
+.modalActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}

@@ -1,0 +1,9 @@
+# Dependencies and build output (Frontend and Backend have their own .gitignore too)
+node_modules
+dist
+
+# macOS
+.DS_Store
+
+# Instructions for AI agents, kept local
+CLAUDE.md

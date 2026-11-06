@@ -1,0 +1,118 @@
+.step {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.step p {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.header > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+/* Focus is moved here by code, so it doesn't need a visible ring */
+.heading:focus {
+  outline: none;
+}
+
+/* position: relative keeps the hidden radio inputs inside the frame, so they scroll with it
+   and focusing one doesn't make the page jump */
+.frame {
+  position: relative;
+  max-height: calc(100vh - 330px);
+  min-height: 320px;
+  padding: var(--space-3);
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--disabled-bg);
+}
+
+/* The frame scrolls with the keyboard too, so show where focus is */
+.frame:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.page {
+  display: grid;
+  gap: var(--space-1);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+/* A phone-width page */
+.mobile {
+  max-width: 375px;
+  padding: var(--space-3) var(--space-2);
+}
+
+.progress {
+  height: 4px;
+  margin-top: var(--space-1);
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.meta {
+  justify-self: end;
+}
+
+.questions {
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.question {
+  display: grid;
+  gap: 12px;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.question:last-child {
+  border-bottom: none;
+}
+
+/* "ALLMÄN HÄLSA", where a new area starts */
+.area {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.scale {
+  display: grid;
+  gap: var(--space-1);
+}
+
+/* Tablets: less padding around and inside the preview */
+@media (max-width: 1024px) {
+  .frame {
+    padding: var(--space-2);
+  }
+
+  .page {
+    padding: var(--space-3);
+  }
+
+  .mobile {
+    padding: var(--space-3) var(--space-2);
+  }
+}

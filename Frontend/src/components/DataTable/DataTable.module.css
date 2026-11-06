@@ -1,0 +1,131 @@
+/* A white box with a semantic <table> inside; .wrap scrolls sideways on narrow screens */
+.wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  color: var(--text-1);
+}
+
+.table th,
+.table td {
+  padding: 12px var(--space-3);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* The first cell: the row's name, as a row header */
+.name {
+  font-weight: 600;
+}
+
+/* A name that opens the item; navy, underlined on hover */
+.nameLink {
+  display: block;
+  color: var(--text-strong);
+  text-decoration: none;
+}
+
+.nameLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nameLink:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* The "more actions" menu first in the row, so it's visible without scrolling sideways */
+.table .menuCell {
+  width: 1%;
+  padding-right: 0;
+}
+
+/* The chevron last in the row */
+.table .chevronCell {
+  width: 1%;
+  text-align: right;
+}
+
+.chevron {
+  display: inline-flex;
+  color: var(--text-2);
+}
+
+/* The whole row opens the item for mouse users; keyboard users use the name link */
+.row {
+  cursor: pointer;
+}
+
+.row:hover {
+  background: var(--bg);
+}
+
+/* A second line under the name */
+.sub {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+/*
+  A row the user was sent to (e.g. from Översikt): a light green background, like a
+  hover, that fades after a few seconds. No fill-mode, so the row's own hover works after.
+*/
+.highlight {
+  animation: highlight-fade 3.6s ease;
+}
+
+@keyframes highlight-fade {
+  0%,
+  83% {
+    background-color: var(--selected-bg);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+/* No fade with reduced motion: the colour just goes away at the end */
+@media (prefers-reduced-motion: reduce) {
+  .highlight {
+    animation-timing-function: step-end;
+  }
+}
+
+/* Tablets: tighter cells and slightly smaller text, so the columns get more room */
+@media (max-width: 1024px) {
+  .table {
+    font-size: 15px;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px var(--space-2);
+  }
+}
